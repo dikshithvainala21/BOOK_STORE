@@ -9,6 +9,7 @@ class Book(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
     author = models.CharField(max_length=50)
+    is_bestselling = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.title} by {self.author} - {self.rating}/5"
+        return f"{self.title} by {self.author} - {self.rating}/5 {'(Bestselling)' if self.is_bestselling else '(Not Bestselling)'}"
