@@ -8,3 +8,9 @@ def index(request):
     return render(request, 'book_outlet/index.html', {
         'books': books
         })
+
+def book_detail(request, book_id):
+    book = Book.objects.get(id=book_id)
+    return render(request, 'book_outlet/book_detail.html', {
+        'book': book
+        })
