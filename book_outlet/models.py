@@ -10,6 +10,7 @@ class Book(models.Model):
     )
     author = models.CharField(max_length=50)
     is_bestselling = models.BooleanField(default=False)
+    price = models.DecimalField(max_digits=5, decimal_places=2,default=100.00)
 
     def __str__(self):
         return f"{self.title} by {self.author} - {self.rating}/5 {'(Bestselling)' if self.is_bestselling else '(Not Bestselling)'}"
